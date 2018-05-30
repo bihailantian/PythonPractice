@@ -1,4 +1,6 @@
+#!/usr/bin/env python3
 # -*- encoding；utf-8 -*-
+# 
 import math
 import cmath
 import random

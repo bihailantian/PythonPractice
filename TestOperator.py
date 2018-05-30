@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- encoding；utf-8 -*-
 '''
 python 运算符
