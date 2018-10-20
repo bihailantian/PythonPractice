@@ -8,3 +8,22 @@
       见只剩下一个桃子了。求第一天共摘了多少。
 """
 
+#桃子总个数
+sum = 1
+#第二天剩下的桃子的个数
+#sum = sum/2 - 1
+
+
+for i in range(1,10):
+    sum = (sum+1) * 2
+    if i == 8:
+        print("第一天共摘了%d个" % sum)
+
+"""
+print("总计",sum)
+
+
+for i in range(1,10):
+    sum = sum/2 - 1
+    print("第%d天剩下%d" % (i,sum))
+"""
