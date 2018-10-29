@@ -22,6 +22,7 @@ def netOfHttp():
     conn.request("GET","/api/xiandu/categories")
     response = conn.getresponse()
     print("response.status:",response.status)
+    print("response.reason:",response.reason)
     response_data = response.read()
     # json.loads():解决输出中文显示 '\u871c\u7c89/\u6563\u7c89' 的问题
     response_str = json.loads(response_data)
