@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding:UTF-8 -*-
-# 
-# Python 文件I/O
+
+"""
+Python 文件I/O
+"""
 
 import os
 

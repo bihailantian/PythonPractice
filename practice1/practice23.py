@@ -1,4 +1,4 @@
-# !/use/bin/env/python3
+#!/use/bin/env/python3
 # -*- encoding: utf-8 -*-
 
 """

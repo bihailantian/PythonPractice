@@ -1,4 +1,4 @@
-# !/use/bin/python3
+#!/use/bin/python3
 #  -*- coding:UTF-8 -*-
 
 # 1、导入socket、sys模块
