@@ -15,7 +15,7 @@ def genCode(n):
     for i in range(n):
         code = uuid.uuid1()
         #print(code)
-        activity_code.append(code)
+        activity_code.append(str(code))
     
     return activity_code
 
