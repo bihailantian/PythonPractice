@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 # -*- encoding:utf-8 -*-
 
+'''
+将 0001 题生成的 200 个激活码（或者优惠券）保存到 MySQL 关系型数据库中。
+'''
+
 import genCode
 import pymysql
+
 
 def connectDB(sql):
     # 打开数据库连接      ip         用户名  密码   数据名称
