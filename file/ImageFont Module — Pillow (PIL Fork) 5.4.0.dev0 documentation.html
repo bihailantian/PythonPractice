@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://pillow.readthedocs.io/en/latest/reference/ImageFont.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/theme.css" type="text/css">
+  <link rel="stylesheet" href="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/pygments.css" type="text/css">
+    <link rel="author" title="About these documents" href="https://pillow.readthedocs.io/en/latest/about.html">
+    <link rel="index" title="Index" href="https://pillow.readthedocs.io/en/latest/genindex.html">
+    <link rel="search" title="Search" href="https://pillow.readthedocs.io/en/latest/search.html">
+    <link rel="next" title="ImageGrab Module (macOS and Windows only)" href="https://pillow.readthedocs.io/en/latest/reference/ImageGrab.html">
+    <link rel="prev" title="ImageFilter Module" href="https://pillow.readthedocs.io/en/latest/reference/ImageFilter.html"> 
+
+  
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/modernizr.min.js.下载"></script>
+
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://pillow.readthedocs.io/en/5.3.x/reference/ImageFont.html">
+
+<link rel="stylesheet" href="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/readthedocs-doc-embed.css" type="text/css">
+
+<script type="text/javascript" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/readthedocs-data.js.下载"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'reference/ImageFont'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/readthedocs-analytics.js.下载"></script>
+
+<!-- end RTD <extrahead> -->
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body class="wy-body-for-nav" style=""><div id="MathJax_Message" style="display: none;"></div>
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="https://pillow.readthedocs.io/en/latest/index.html" class="icon icon-home"> Pillow (PIL Fork)
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://pillow.readthedocs.io/en/latest/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/handbook/index.html">Handbook</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/index.html"><span class="toctree-expand"></span>Reference</a><ul class="">
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/Image.html"><code class="docutils literal notranslate"><span class="pre">Image</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageChops.html"><code class="docutils literal notranslate"><span class="pre">ImageChops</span></code> (“Channel Operations”) Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageColor.html"><code class="docutils literal notranslate"><span class="pre">ImageColor</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageCms.html"><code class="docutils literal notranslate"><span class="pre">ImageCms</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageDraw.html"><code class="docutils literal notranslate"><span class="pre">ImageDraw</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageEnhance.html"><code class="docutils literal notranslate"><span class="pre">ImageEnhance</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageFile.html"><code class="docutils literal notranslate"><span class="pre">ImageFile</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageFilter.html"><code class="docutils literal notranslate"><span class="pre">ImageFilter</span></code> Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal current" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#"><span class="toctree-expand"></span><code class="docutils literal notranslate"><span class="pre">ImageFont</span></code> Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageGrab.html"><code class="docutils literal notranslate"><span class="pre">ImageGrab</span></code> Module (macOS and Windows only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageMath.html"><code class="docutils literal notranslate"><span class="pre">ImageMath</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageMorph.html"><code class="docutils literal notranslate"><span class="pre">ImageMorph</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageOps.html"><code class="docutils literal notranslate"><span class="pre">ImageOps</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImagePalette.html"><code class="docutils literal notranslate"><span class="pre">ImagePalette</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImagePath.html"><code class="docutils literal notranslate"><span class="pre">ImagePath</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageQt.html"><code class="docutils literal notranslate"><span class="pre">ImageQt</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageSequence.html"><code class="docutils literal notranslate"><span class="pre">ImageSequence</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageStat.html"><code class="docutils literal notranslate"><span class="pre">ImageStat</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageTk.html"><code class="docutils literal notranslate"><span class="pre">ImageTk</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageWin.html"><code class="docutils literal notranslate"><span class="pre">ImageWin</span></code> Module (Windows-only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ExifTags.html"><code class="docutils literal notranslate"><span class="pre">ExifTags</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/TiffTags.html"><code class="docutils literal notranslate"><span class="pre">TiffTags</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/PSDraw.html"><code class="docutils literal notranslate"><span class="pre">PSDraw</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/PixelAccess.html"><code class="docutils literal notranslate"><span class="pre">PixelAccess</span></code> Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/PyAccess.html"><code class="docutils literal notranslate"><span class="pre">PyAccess</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/PIL.html">PIL Package (autodoc of remaining modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/plugins.html">Plugin reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/internal_design.html">Internal Reference Docs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/porting.html">Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/releasenotes/index.html">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      <div id="rtd-qu6ugwzs" class="ethical-rtd ethical-dark-theme"><div class="ethical-sidebar"><div class="ethical-content"><a href="https://readthedocs.org/sustainability/click/376/SNv3Oo5DYtHs/" rel="nofollow" target="_blank" class="ethical-image-link"><img src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/saved_resource"></a><div class="ethical-text">Take the <a href="https://readthedocs.org/sustainability/click/376/SNv3Oo5DYtHs/" rel="nofollow" target="_blank">Python User's Survey</a> and let us know more about your usage of Python.</div></div><div class="ethical-callout"><small><em><a href="https://readthedocs.org/sustainability/advertising/">Sponsored</a><span> · </span><a href="https://docs.readthedocs.io/en/latest/ethical-advertising.html">Ads served ethically</a></em></small></div></div></div></div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="https://pillow.readthedocs.io/en/latest/index.html">Pillow (PIL Fork)</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="https://pillow.readthedocs.io/en/latest/index.html">Docs</a> »</li>
+        
+          <li><a href="https://pillow.readthedocs.io/en/latest/reference/index.html">Reference</a> »</li>
+        
+      <li><code class="docutils literal notranslate"><span class="pre">ImageFont</span></code> Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/python-pillow/Pillow/blob/master/docs/reference/ImageFont.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-PIL.ImageFont"></span><div class="section" id="imagefont-module">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">ImageFont</span></code> Module<a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#imagefont-module" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">ImageFont</span></code> module defines a class with the same name. Instances of
+this class store bitmap fonts, and are used with the
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">PIL.ImageDraw.Draw.text()</span></code> method.</p>
+<p>PIL uses its own font file format to store bitmap fonts. You can use the
+<strong class="command">pilfont</strong> utility to convert BDF and PCF font descriptors (X window
+font formats) to this format.</p>
+<p>Starting with version 1.1.4, PIL can be configured to support TrueType and
+OpenType fonts (as well as other font formats supported by the FreeType
+library). For earlier versions, TrueType support is only available as part of
+the imToolkit package</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageFont</span><span class="p">,</span> <span class="n">ImageDraw</span>
+
+<span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+<span class="c1"># use a bitmap font</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"arial.pil"</span><span class="p">)</span>
+
+<span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s2">"hello"</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="c1"># use a truetype font</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="o">.</span><span class="n">truetype</span><span class="p">(</span><span class="s2">"arial.ttf"</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+<span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="s2">"world"</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="PIL.ImageFont.load">
+<code class="descclassname">PIL.ImageFont.</code><code class="descname">load</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/_modules/PIL/ImageFont.html#load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#PIL.ImageFont.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a font file.  This function loads a font object from the given
+bitmap font file, and returns the corresponding font object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> – Name of font file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A font object.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>IOError</strong> – If the file could not be read.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PIL.ImageFont.load_path">
+<code class="descclassname">PIL.ImageFont.</code><code class="descname">load_path</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/_modules/PIL/ImageFont.html#load_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#PIL.ImageFont.load_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load font file. Same as <a class="reference internal" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#PIL.ImageFont.load" title="PIL.ImageFont.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a>, but searches for a
+bitmap font along the Python path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> – Name of font file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A font object.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>IOError</strong> – If the file could not be read.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PIL.ImageFont.truetype">
+<code class="descclassname">PIL.ImageFont.</code><code class="descname">truetype</code><span class="sig-paren">(</span><em>font=None</em>, <em>size=10</em>, <em>index=0</em>, <em>encoding=''</em>, <em>layout_engine=None</em><span class="sig-paren">)</span><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/_modules/PIL/ImageFont.html#truetype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#PIL.ImageFont.truetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a TrueType or OpenType font from a file or file-like object,
+and create a font object.
+This function loads a font object from the given file or file-like
+object, and creates a font object for a font of the given size.</p>
+<p>This function requires the _imagingft service.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>font</strong> – A filename or file-like object containing a TrueType font.
+Under Windows, if the file is not found in this filename,
+the loader also looks in Windows <code class="file docutils literal notranslate"><span class="pre">fonts/</span></code> directory.</li>
+<li><strong>size</strong> – The requested size, in points.</li>
+<li><strong>index</strong> – Which font face to load (default is first available face).</li>
+<li><strong>encoding</strong> – Which font encoding to use (default is Unicode). Common
+encodings are “unic” (Unicode), “symb” (Microsoft
+Symbol), “ADOB” (Adobe Standard), “ADBE” (Adobe Expert),
+and “armn” (Apple Roman). See the FreeType documentation
+for more information.</li>
+<li><strong>layout_engine</strong> – Which layout engine to use, if available:
+<cite>ImageFont.LAYOUT_BASIC</cite> or <cite>ImageFont.LAYOUT_RAQM</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A font object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>IOError</strong> – If the file could not be read.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PIL.ImageFont.load_default">
+<code class="descclassname">PIL.ImageFont.</code><code class="descname">load_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="https://pillow.readthedocs.io/en/latest/_modules/PIL/ImageFont.html#load_default"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#PIL.ImageFont.load_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a “better than nothing” default font.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.1.4.</span></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A font object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="PIL.ImageFont.PIL.ImageFont.ImageFont.getsize">
+<code class="descclassname">PIL.ImageFont.ImageFont.</code><code class="descname">getsize</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#PIL.ImageFont.PIL.ImageFont.ImageFont.getsize" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">(width, height)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PIL.ImageFont.PIL.ImageFont.ImageFont.getmask">
+<code class="descclassname">PIL.ImageFont.ImageFont.</code><code class="descname">getmask</code><span class="sig-paren">(</span><em>text</em>, <em>mode=''</em>, <em>direction=None</em>, <em>features=[]</em><span class="sig-paren">)</span><a class="headerlink" href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html#PIL.ImageFont.PIL.ImageFont.ImageFont.getmask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a bitmap for the text.</p>
+<p>If the font uses antialiasing, the bitmap should have mode “L” and use a
+maximum value of 255. Otherwise, it should have mode “1”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> – Text to render.</li>
+<li><strong>mode</strong> – <p>Used by some graphics drivers to indicate what mode the
+driver prefers; if empty, the renderer may return either
+mode. Note that the mode is always a string, to simplify
+C-level implementations.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.1.5.</span></p>
+</div>
+</li>
+<li><strong>direction</strong> – <p>Direction of the text. It can be ‘rtl’ (right to
+left), ‘ltr’ (left to right) or ‘ttb’ (top to bottom).
+Requires libraqm.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.2.0.</span></p>
+</div>
+</li>
+<li><strong>features</strong> – <p>A list of OpenType font features to be used during text
+layout. This is usually used to turn on optional
+font features that are not enabled by default,
+for example ‘dlig’ or ‘ss01’, but can be also
+used to turn off default font features for
+example ‘-liga’ to disable ligatures or ‘-kern’
+to disable kerning.  To get all supported
+features, see
+<a class="reference external" href="https://docs.microsoft.com/en-us/typography/opentype/spec/featurelist">https://docs.microsoft.com/en-us/typography/opentype/spec/featurelist</a>
+Requires libraqm.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.2.0.</span></p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">An internal PIL storage memory instance as defined by the
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">PIL.Image.core</span></code> interface module.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="https://pillow.readthedocs.io/en/latest/reference/ImageGrab.html" class="btn btn-neutral float-right" title="ImageGrab Module (macOS and Windows only)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="https://pillow.readthedocs.io/en/latest/reference/ImageFilter.html" class="btn btn-neutral" title="ImageFilter Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr><div><div id="rtd-x1rj850ah" class="ethical-rtd"></div></div>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright 1995-2011 Fredrik Lundh, 2010-2018 Alex Clark and Contributors
+      
+        <span class="commit">
+          Revision <code>3d76a686</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions"><!-- Inserted RTD Footer -->
+<div class="injected">
+
+  
+
+      
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+         <strong> 
+        <dd><a href="https://pillow.readthedocs.io/en/latest/reference/ImageFont.html">latest</a></dd>
+         </strong> 
+        
+        
+        <dd><a href="https://pillow.readthedocs.io/en/stable/reference/ImageFont.html">stable</a></dd>
+        
+        
+        
+        <dd><a href="https://pillow.readthedocs.io/en/5.3.x/reference/ImageFont.html">5.3.x</a></dd>
+        
+        
+      </dl>
+      
+      
+
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="https://readthedocs.org/projects/pillow/downloads/pdf/latest/">PDF</a></dd>
+        
+        <dd><a href="https://readthedocs.org/projects/pillow/downloads/htmlzip/latest/">HTML</a></dd>
+        
+        <dd><a href="https://readthedocs.org/projects/pillow/downloads/epub/latest/">Epub</a></dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="https://readthedocs.org/projects/pillow/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/pillow/builds/">Builds</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/pillow/downloads/">Downloads</a>
+        </dd>
+      </dl>
+      
+
+      
+
+      
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/python-pillow/Pillow/blob/master/docs/reference/ImageFont.rst">View</a>
+        </dd>
+        
+        <dd>
+          <a href="https://github.com/python-pillow/Pillow/edit/master/docs/reference/ImageFont.rst">Edit</a>
+        </dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="https://readthedocs.org/projects/pillow/search/" method="get">
+              <input type="text" name="q" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+      
+
+
+
+      <hr>
+      
+        <small>
+          <span>Hosted by <a href="https://readthedocs.org/">Read the Docs</a></span>
+          <span> · </span>
+          <a href="https://docs.readthedocs.io/en/latest/privacy-policy.html">Privacy Policy</a>
+        </small>
+      
+
+      
+
+</div>
+</div>
+  </div>
+
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/documentation_options.js.下载"></script>
+        <script type="text/javascript" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/jquery-2.0.3.min.js.下载"></script>
+        <script type="text/javascript" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/jquery-migrate-1.2.1.min.js.下载"></script>
+        <script type="text/javascript" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/underscore.js.下载"></script>
+        <script type="text/javascript" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/doctools.js.下载"></script>
+        <script async="async" type="text/javascript" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/MathJax.js.下载"></script>
+        <script type="text/javascript" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/readthedocs-doc-embed.js.下载"></script>
+    
+
+  
+
+  <script type="text/javascript" src="./ImageFont Module — Pillow (PIL Fork) 5.4.0.dev0 documentation_files/theme.js.下载"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+
+</body></html>
